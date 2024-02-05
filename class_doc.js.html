@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: class_doc.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: class_doc.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>﻿/**
+ * paint関数で引数として渡ってくる、描画のためのオブジェクト
+ * @example
+ * function paint(model, painter) {
+ *     painter.clear()
+ *     painter.pen = "black"
+ *     painter.drawRect(0, 0, 100, 100)
+ *     painter.pen = "green"
+ *     painter.drawEllipse(0, 0, 100, 100)
+ *     painter.pen = "blue"
+ *     painter.drawLine(0, 0, 100, 100)
+ *     painter.pen = "red"
+ *     painter.drawText(20, 20, "Hello, World!")
+ * }
+ */
+class Painter{
+    /**
+     * 画面の横幅
+     * @type {number}
+     */
+    width=1000
+
+    /**
+     * 画面の高さ
+     * @type {number}
+     */
+    height=1000
+
+    /**
+     * 描画時の色
+     * @type {Color}
+     */
+    pen="red"
+
+    /**
+     * 文字のサイズ
+     * @type {number}
+     */
+    pixelSize=1
+
+    /**
+     * 文字のサイズ
+     * @type {number}
+     */
+    pointSize=1
+
+    /**
+     * 線の太さ
+     * @type {number}
+     */
+    penWidth=1
+
+    /**
+     * フォントの指定
+     * @type {string}
+     */
+    font=""
+
+    /**
+     * 有効なフォントの一覧
+     * @type {string[]}
+     */
+    fontList=[""]
+
+    /**
+     * 塗りつぶしの色
+     * @type {Color}
+     */
+    brush="black"
+
+    /**
+     * 描画したものを初期化する
+     */
+    clear(){}
+
+    /**
+     * 文字を描画する
+     * @param x {number}
+     * @param y {number}
+     * @param text {string}
+     */
+    drawText(x,y,text){}
+
+    /**
+     * 線を描画する
+     * @param x1 {number}
+     * @param y1 {number}
+     * @param x2 {number}
+     * @param y2 {number}
+     */
+    drawLine(x1,y1,x2,y2){}
+
+    /**
+     * 点を描画する
+     * @param x {number}
+     * @param y {number}
+     */
+    drawPoint(x,y){}
+
+    /**
+     * 楕円を描画する
+     * @param x {number}
+     * @param y {number}
+     * @param width {number}
+     * @param height {number}
+     */
+    drawEllipse(x,y,width,height){}
+
+    /**
+     * 四角形を描画する
+     * @param x {number}
+     * @param y {number}
+     * @param width {number}
+     * @param height {number}
+     */
+    drawRect(x,y,width,height){}
+
+    /**
+     * 円を描画する
+     * @param x {number}
+     * @param y {number}
+     * @param radius {number}
+     */
+    drawCircle(x,y,radius){}
+
+    /**
+     * 画像を描画する
+     * @param x {number}
+     * @param y {number}
+     * @param image {string} scriptsフォルダにある画像ファイル名
+     */
+    drawImage(x,y,image){}
+}
+
+class Color{
+
+}
+
+/**
+ * Cubismのパラメータを表すオブジェクト
+ * @example
+ * function start(model){
+ *   for(let param of model.parameters){
+ *       console.log("ID:",param.id)
+ *       console.log("  Name:",param.name)
+ *       console.log("  Default Value:",param.defaultValue)
+ *       console.log("  Max:",param.max)
+ *       console.log("  Min:",param.min)
+ *       console.log("  Value:",param.value)
+ *   }
+ * }
+ */
+class Parameter {
+    /**
+     * パラメータのID
+     * @type {string}
+     */
+    id = ""
+
+    /**
+     * パラメータの値
+     * @type {number}
+     */
+    value = 0
+
+    /**
+     * パラメータの名前。cdi.jsonに記載が無い場合は空文字列
+     * @type {string}
+     */
+    name = ""
+
+    /**
+     * パラメータの最小値
+     * @type {number}
+     */
+    min=0
+
+    /**
+     * パラメータの最大値
+     * @type {number}
+     */
+    max=1
+
+    /**
+     * パラメータの初期値
+     * @type {number}
+     */
+    defaultValue=0
+}
+
+/**
+ * Cubismのパーツを表すオブジェクト
+ * @example
+ * function start(model){
+ *     for(let part of model.parts){
+ *         console.log("ID:",part.id)
+ *         console.log("  Name:",part.name)
+ *         console.log("  Opacity:",part.opacity)
+ *         console.log("  Parent Part:",part.parentPart?.id)
+ *         console.log("  MultiplyColor:",part.multiplyColor)
+ *         console.log("  ScreenColor:",part.screenColor)
+ *         console.log("  Drawable Children Count:",part.drawables.length)
+ *         console.log("  Part Children Count:",part.parts.length)
+ *     }
+ * }
+ */
+class Part {
+    /**
+     * パーツID
+     * @type {string}
+     */
+    id = ""
+
+    /**
+     * パーツ名。cdi.jsonに記載が無い場合は空文字列
+     * @type {string}
+     */
+    name = ""
+
+    /**
+     * 親パーツ
+     * @type {Part}
+     */
+    parentPart = {}
+
+    /**
+     * パーツの不透明度
+     * @type {number}
+     */
+    opacity=1
+
+    /**
+     * 子パーツ
+     * @type {Part[]}
+     */
+    parts=[]
+
+    /**
+     * 子描画オブジェクト
+     * @type {Drawable[]}
+     */
+    drawables=[]
+
+    /**
+     * パーツの乗算色
+     * @type {Color}
+     */
+    multiplyColor = {}
+
+    /**
+     * パーツの加算色
+     * @type {Color}
+     */
+    screenColor = {}
+}
+
+/**
+ * Cubismの描画オブジェクトを表すオブジェクト
+ * @example
+ * function start(model){
+ *     for(let drawable of model.drawables){
+ *         console.log("ID",drawable.id)
+ *         console.log("  Opacity",drawable.opacity)
+ *         console.log("  DrawOrder",drawable.drawOrder)
+ *         console.log("  Parent Part:",drawable.parentPart?.id)
+ *         console.log("  MultiplyColor:",drawable.multiplyColor)
+ *         console.log("  ScreenColor:",drawable.screenColor)
+ *     }
+ * }
+ */
+class Drawable {
+    /**
+     * 描画オブジェクトID
+     * @type {string}
+     */
+    id = ""
+
+    /**
+     * 親パーツ
+     * @type {{}}
+     */
+    parentPart = {}
+
+    /**
+     * 不透明度
+     * @type {number}
+     */
+    opacity=1
+
+    /**
+     * 描画順
+     * @type {number}
+     */
+    drawOrder=1
+
+    /**
+     * 乗算色
+     * @type {Color}
+     */
+    multiplyColor = {}
+
+    /**
+     * 加算色
+     * @type {Color}
+     */
+    screenColor = {}
+}
+
+/**
+ * Cubismのモーションを表すオブジェクト
+ * @example
+ * function start(model){
+ *     for(let motion of model.motions){
+ *         console.log("Name",motion.name)
+ *     }
+ *
+ *     if(model.motions.length>0){
+ *         let motion=model.motions[Math.floor(Math.random() * model.motions.length)];
+ *         motion.start()
+ *     }
+ * }
+ */
+class Motion{
+    /**
+     * モーション名
+     * @type {string}
+     */
+    name = ""
+
+    /**
+     * モーションを開始する
+     */
+    start(){
+
+    }
+
+    /**
+     * 停止する
+     */
+    stop(){
+    }
+}
+
+/**
+ * Cubismの表情を表すオブジェクト
+ * @example
+ * function start(model){
+ *     for(let expression of model.expressions){
+ *         console.log("Name",expression.name)
+ *     }
+ *
+ *     if(model.expressions.length>0){
+ *         let expression=model.expressions[Math.floor(Math.random() * model.expressions.length)];
+ *         expression.start()
+ *         console.log("Start Expression",expression.name)
+ *     }
+ * }
+ */
+class Expression{
+    /**
+     * モーション名
+     * @type {string}
+     */
+    name = ""
+
+    /**
+     * 表情を再生する
+     */
+    start(){
+    }
+
+    /**
+     * 表情を停止する
+     */
+    stop(){
+    }
+}
+
+/**
+ * Live2Dモデルを操作するオブジェクト
+ * モデルスクリプトのイベント関数で第一引数として渡ってくる
+ */
+class Model {
+    /**
+     * パラメータの一覧
+     * @type {Parameter[]}
+     */
+    parameters = []
+
+    /**
+     * パラメータを取得する。
+     * @param id {string} IDが無い場合は名前で検索する
+     * @returns {Parameter}
+     */
+    parameter(id){
+        return new Parameter()
+    }
+
+    /**
+     * パーツの一覧
+     * @type {Part[]}
+     */
+    parts = []
+
+    /**
+     * パーツを取得する。
+     * @param id {string} IDが無い場合は名前で検索する
+     * @returns {Part}
+     */
+    part(id){
+        return new Part()
+    }
+
+    /**
+     * 描画オブジェクトの一覧
+     * @type {Drawable[]}
+     */
+    drawables = []
+
+    /**
+     * 描画オブジェクトを取得する。
+     * @param id {string} IDが無い場合は名前で検索する
+     * @returns {Drawable}
+     */
+    drawable(id){
+        return new Drawable()
+    }
+
+    /**
+     * モーション(motion3.json)の一覧
+     * @type {Motion[]}
+     */
+    motions = []
+
+    /**
+     * モーションを取得する。
+     * @param name {string}
+     * @returns {Motion}
+     */
+    motion(name){
+        return new Motion()
+    }
+
+    /**
+     * 表情(exp3.json)の一覧
+     * @type {Expression[]}
+     */
+    expressions = []
+
+    /**
+     * 表情を取得する。
+     * @param name {string} ファイル名またはmodel3.jsonに記載の名前
+     * @returns {Expression}
+     */
+    expression(name){
+        return new Expression()
+    }
+
+    /**
+     * 乗算色
+     * @type {Color}
+     */
+    multiplyColor = {}
+
+    /**
+     * 加算色
+     * @type {Color}
+     */
+    screenColor = {}
+
+
+    /**
+     * 再生中のモーションを終了する関数
+     */
+    stopMotion() {
+    }
+
+    /**
+     * モデルを移動する
+     * @param {Object} param - 設定オブジェクト。
+     * @param {number} [param.X] - X座標
+     * @param {number} [param.Y] - Y座標
+     * @param {number} [param.Scale] - 大きさ
+     * @param {number} [param.Rotation] - 回転
+     * @param {number} [param.Delay=1] - 完了までの秒数
+     * @param {bool} [param.Absolute=false] - 絶対座標で移動するかどうか
+     * @param {string} [param.InterpolationType="Linear"] - 補間方法
+     * @example
+  model.move({
+    Rotation: 90,
+    Delay: 3
+  })
+     */
+    move(param){
+
+    }
+}
+
+
+/**
+ * シーン
+ * @example
+ * function start(app) {
+ *     for(let scene of app.scenes){
+ *         console.log("ID:",scene.id)
+ *         console.log("  Model:",scene.models.length)
+ *         console.log("  Item:",scene.items.length)
+ *     }
+ * }
+ */
+class Scene {
+    /**
+     * ID
+     * @type {string}
+     */
+    id = ""
+
+
+    /**
+     * モデル一覧(Live2Dアイテムを除く)
+     * @type {Model[]}
+     */
+    models= []
+
+    /**
+     * アイテム一覧
+     * @type {Item[]}
+     */
+    items= []
+}
+
+/**
+ * アプリケーション全体の操作をするオブジェクト
+ */
+class Application {
+    /**
+     * 実行しているスクリプトのパス
+     * @type {number}
+     */
+    path = 0
+
+    /**
+     * シーンの一覧
+     * @type {Scene[]}
+     */
+    scenes = []
+
+    /**
+     * すべてのシーンのモデルの一覧
+     * @type {Model[]}
+     */
+    models = []
+
+    /**
+     * すべてのシーンの相手見の一覧
+     * @type {Item[]}
+     */
+    items = []
+
+    /**
+     * 右上にメッセージを表示する
+     * @param message {string}
+     */
+    showMessage(message){
+
+    }
+}
+
+/**
+ * グローバルにアクセスできるオブジェクト
+ */
+class Live {
+    /**
+     * スクリプトのバージョン
+     * @type {string}
+     */
+    version = "0.9.0"
+
+    /**
+     * シーンの一覧
+     * @type {Scene[]}
+     */
+    scenes = []
+
+    /**
+     * LIVEパラメータの一覧
+     * @type {Array&lt;{id: string, createdBy: string, group: string, base: number, min: number, max: number, repeat: boolean}>}
+     */
+    parameters = []
+
+    /**
+     * LIVEパラメータを追加する
+     * @param {Object} param - パラメータ設定オブジェクト。
+     * @param {string} param.Id - パラメータのID。
+     * @param {string} param.Group - パラメータが属するグループ。
+     * @param {number} param.Base - パラメータの基本値。
+     * @param {number} param.Max - パラメータの最大値。
+     * @param {number} param.Min - パラメータの最小値。
+     * @param {boolean} param.Repeat - パラメータが繰り返し可能かどうか。
+     */
+    insertParameter(param){
+
+    }
+
+    /**
+     * 色の数値から#FFFFFFFFの形式に変更
+     * @param red {number} 0~1
+     * @param green {number} 0~1
+     * @param blue {number} 0~1
+     * @param alpha {number} 0~1
+     */
+    rgba(red, green, blue, alpha) {
+    }
+
+    /**
+     * コンボボックスでの選択ダイアログを開く
+     * ※ モーダルダイアログで開きます
+     * @param title {string} ウィンドウタイトル
+     * @param text {string} 本文
+     * @param list {string[]} 選択肢の一覧
+     * @param selectedCallback {Function} 選択したときに呼ばれる関数
+     * @param canceledCallback {Function} キャンセルしたときに呼ばれる関数
+     * @param changedCallback {Function} 変更があったときに呼ばれる関数
+     */
+    openListDialog(title, text, list,
+                   selectedCallback, canceledCallback = {}, changedCallback = {}) {
+    }
+
+    /**
+     * カラーダイアログを開く
+     */
+    openColorDialog(selectedCallback, canceledCallback = {}, changedCallback = {}){}
+
+    /**
+     * テキスト入力ダイアログを開く
+     */
+    openTextDialog(title, text, selectedCallback, canceledCallback = {}, changedCallback = {}){}
+
+    /**
+     * 複数行のテキスト入力ダイアログを開く
+     */
+    openMultiTextDialog(title, text, content,selectedCallback, canceledCallback = {},changedCallback = {}){}
+
+    /**
+     * 整数入力ダイアログを開く
+     */
+    openIntDialog(title, text, min = 0, value = 0,  max = 100, selectedCallback = {}, canceledCallback = {}, changedCallback = {}){}
+
+    /**
+     * 小数入力ダイアログを開く
+     */
+    openFloatDialog(title, text, min = 0, value = 0, max = 100, selectedCallback = {}, canceledCallback = {}, changedCallback = {}){}
+
+    /**
+     * エラーダイアログを開く
+     */
+    openErrorDialog(title, text, acceptedCallback = {}){}
+
+    /**
+     * メッセージダイアログを開く
+     */
+    openMessageDialog(title, text, acceptedCallback = {}, canceledCallback = {}, detail = {}){}
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Drawable.html">Drawable</a></li><li><a href="Expression.html">Expression</a></li><li><a href="Live.html">Live</a></li><li><a href="LiveParameters.html">LiveParameters</a></li><li><a href="Model.html">Model</a></li><li><a href="Motion.html">Motion</a></li><li><a href="Painter.html">Painter</a></li><li><a href="Parameter.html">Parameter</a></li><li><a href="Part.html">Part</a></li><li><a href="Scene.html">Scene</a></li></ul><h3>Global</h3><ul><li><a href="global.html#onDestroy">onDestroy</a></li><li><a href="global.html#onDisable">onDisable</a></li><li><a href="global.html#onEnable">onEnable</a></li><li><a href="global.html#onKeyDown">onKeyDown</a></li><li><a href="global.html#onKeyUp">onKeyUp</a></li><li><a href="global.html#onMouseDown">onMouseDown</a></li><li><a href="global.html#onMouseMove">onMouseMove</a></li><li><a href="global.html#onMouseUp">onMouseUp</a></li><li><a href="global.html#paint">paint</a></li><li><a href="global.html#start">start</a></li><li><a href="global.html#update">update</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Fri Feb 02 2024 13:24:35 GMT+0900 (Japan Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

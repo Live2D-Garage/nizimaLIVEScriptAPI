@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: live_parameters_doc.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: live_parameters_doc.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>﻿/**
+ * トラッキングパラメータを管理するオブジェクト
+ * モデルスクリプトで引数として渡ってくる
+ */
+class LiveParameters {
+
+    /**
+     * 顔の上下の向きの動きの値
+     * @type {number}
+     */
+    Yaw = 0
+
+    /**
+     * 顔の左右の向きの動きの値
+     * @type {number}
+     */
+    Pitch = 0
+
+    /**
+     * 顔の左右の傾きの動きの値
+     * @type {number}
+     */
+    Roll = 0
+
+    /**
+     * Live2Dモデルの位置のX座標の値
+     * @type {number}
+     */
+    PositionX = 0
+
+    /**
+     * Live2Dモデルの位置のY座標の値
+     * @type {number}
+     */
+    PositionY = 0
+
+    /**
+     * Live2Dモデルの拡大率の値
+     * @type {number}
+     */
+    PositionZ = 0
+
+    /**
+     * 眉毛の上下の値
+     * @type {number}
+     */
+    BrowYLeft = 0
+
+    /**
+     * 眉毛の上下の値
+     * @type {number}
+     */
+    BrowYRight = 0
+
+    /**
+     * 目の開き具合の値
+     * @type {number}
+     */
+    EyeOpenLeft = 0
+
+    /**
+     * 目の開き具合の値
+     * @type {number}
+     */
+    EyeOpenRight = 0
+
+    /**
+     * 視線の値
+     * @type {number}
+     */
+    EyeLookX = 0
+
+    /**
+     * 視線の値
+     * @type {number}
+     */
+    EyeLookY = 0
+
+    /**
+     * 口の開き具合の値
+     * @type {number}
+     */
+    MouthOpen = 0
+
+    /**
+     * 口の幅の値
+     * @type {number}
+     */
+    MouthSpread = 0
+
+    /**
+     * 笑顔の値
+     * @type {number}
+     */
+    EyeSmileLeft = 0
+
+    /**
+     * 笑顔の値
+     * @type {number}
+     */
+    EyeSmileRight = 0
+
+    /**
+     * 目のパラメータ
+     * @type {number}
+     */
+    EyeWide = 0
+
+    /**
+     * 口のパラメータ
+     * @type {number}
+     */
+    MouthX = 0
+
+    /**
+     * マウスのX
+     * @type {number}
+     */
+    MouseX = 0
+
+    /**
+     * マウスのY
+     * @type {number}
+     */
+    MouseY = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitEyeBlinkLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitEyeLookDownLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitEyeLookInLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitEyeLookOutLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitEyeLookUpLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitEyeSquintLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitEyeWideLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitEyeBlinkRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitEyeLookDownRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitEyeLookInRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitEyeLookOutRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitEyeLookUpRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitEyeSquintRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitEyeWideRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitJawForward = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitJawLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitJawRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitJawOpen = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthClose = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthFunnel = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthPucker = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthSmileLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthSmileRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthFrownLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthFrownRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthDimpleLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthDimpleRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthStretchLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthStretchRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthRollLower = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthRollUpper = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthShrugLower = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthShrugUpper = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthPressLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthPressRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthLowerDownLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthLowerDownRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthUpperUpLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitMouthUpperUpRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitBrowDownLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitBrowDownRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitBrowInnerUp = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitBrowOuterUpLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitBrowOuterUpRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitCheekPuff = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitCheekSquintLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitCheekSquintRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitNoseSneerLeft = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitNoseSneerRight = 0
+
+    /**
+     * iOSのARKitの値
+     * @type {number}
+     */
+    ARKitTongueOut = 0
+
+    /**
+     * リップシンク用の値
+     * @type {number}
+     */
+    LipSyncVolume = 0
+
+    /**
+     * リップシンク用の値
+     * @type {number}
+     */
+    LipSyncMouthOpen = 0
+
+    /**
+     * リップシンク用の値
+     * @type {number}
+     */
+    LipSyncMouthSpread = 0
+
+    /**
+     * リップシンク用の値
+     * @type {number}
+     */
+    LipSyncMouthA = 0
+
+    /**
+     * リップシンク用の値
+     * @type {number}
+     */
+    LipSyncMouthI = 0
+
+    /**
+     * リップシンク用の値
+     * @type {number}
+     */
+    LipSyncMouthU = 0
+
+    /**
+     * リップシンク用の値
+     * @type {number}
+     */
+    LipSyncMouthE = 0
+
+    /**
+     * リップシンク用の値
+     * @type {number}
+     */
+    LipSyncMouthO = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandLeftFound = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandLeftAngleX = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandLeftAngleY = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandLeftAngleZ = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandLeftPositionX = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandLeftPositionY = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandLeftPositionZ = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandLeftOpen = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandLeftFingerThumb = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandLeftFingerIndex = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandLeftFingerMiddle = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandLeftFingerRing = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandLeftFingerPinky = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandRightFound = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandRightAngleX = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandRightAngleY = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandRightAngleZ = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandRightPositionX = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandRightPositionY = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandRightPositionZ = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandRightOpen = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandRightFingerThumb = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandRightFingerIndex = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandRightFingerMiddle = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandRightFingerRing = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandRightFingerPinky = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandBothFound = 0
+
+    /**
+     * ハンドトラッキング用の値
+     * @type {number}
+     */
+    HandDistance = 0
+
+}
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Drawable.html">Drawable</a></li><li><a href="Expression.html">Expression</a></li><li><a href="Live.html">Live</a></li><li><a href="LiveParameters.html">LiveParameters</a></li><li><a href="Model.html">Model</a></li><li><a href="Motion.html">Motion</a></li><li><a href="Painter.html">Painter</a></li><li><a href="Parameter.html">Parameter</a></li><li><a href="Part.html">Part</a></li><li><a href="Scene.html">Scene</a></li></ul><h3>Global</h3><ul><li><a href="global.html#onDestroy">onDestroy</a></li><li><a href="global.html#onDisable">onDisable</a></li><li><a href="global.html#onEnable">onEnable</a></li><li><a href="global.html#onKeyDown">onKeyDown</a></li><li><a href="global.html#onKeyUp">onKeyUp</a></li><li><a href="global.html#onMouseDown">onMouseDown</a></li><li><a href="global.html#onMouseMove">onMouseMove</a></li><li><a href="global.html#onMouseUp">onMouseUp</a></li><li><a href="global.html#paint">paint</a></li><li><a href="global.html#start">start</a></li><li><a href="global.html#update">update</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Fri Feb 02 2024 13:24:35 GMT+0900 (Japan Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
