@@ -236,8 +236,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function onDestroy(model){
-}</code></pre>
+    <pre class="prettyprint"><code>function onDestroy(model){}</code></pre>
 
 
 
@@ -379,9 +378,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function onDisable(model){
-  model.multiplyColor = "" //色を戻す
-}</code></pre>
+    <pre class="prettyprint"><code>function onDisable(model){  model.multiplyColor = "" //色を戻す}</code></pre>
 
 
 
@@ -523,9 +520,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function onDisable(app){
-
-}</code></pre>
+    <pre class="prettyprint"><code>function onDisable(app){}</code></pre>
 
 
 
@@ -667,9 +662,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function onEnable(model){
- console.log(model.name)
-}</code></pre>
+    <pre class="prettyprint"><code>function onEnable(model){ console.log(model.name)}</code></pre>
 
 
 
@@ -687,8 +680,7 @@
 
 
 <div class="description">
-    アプリケーションスクリプトが有効になったときに呼ばれる関数。
-モデルスクリプトとは引数が違うだけで基本動作は同じ。
+    アプリケーションスクリプトが有効になったときに呼ばれる関数。モデルスクリプトとは引数が違うだけで基本動作は同じ。
 </div>
 
 
@@ -812,9 +804,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function onEnable(app){
- console.log(app.models.length)
-}</code></pre>
+    <pre class="prettyprint"><code>function onEnable(app){ console.log(app.models.length)}</code></pre>
 
 
 
@@ -979,13 +969,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function onKeyDown(model, key) {
-    if (key == "Ctrl+A") {
-        if (model.motions.length > 0) {
-            model.motions[0].start()
-        }
-    }
-}</code></pre>
+    <pre class="prettyprint"><code>function onKeyDown(model, key) {    if (key == "Ctrl+A") {        if (model.motions.length > 0) {            model.motions[0].start()        }    }}</code></pre>
 
 
 
@@ -1150,9 +1134,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function onKeyDown(app,key){
-  app.showMessage("pressed "+key)
-}</code></pre>
+    <pre class="prettyprint"><code>function onKeyDown(app,key){  app.showMessage("pressed "+key)}</code></pre>
 
 
 
@@ -1317,9 +1299,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function onKeyUp(model,key){
- console.log(key)
-}</code></pre>
+    <pre class="prettyprint"><code>function onKeyUp(model,key){ console.log(key)}</code></pre>
 
 
 
@@ -1484,8 +1464,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function onKeyUp(app,key){
-}</code></pre>
+    <pre class="prettyprint"><code>function onKeyUp(app,key){}</code></pre>
 
 
 
@@ -1696,9 +1675,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function onMouseDown(model,x,y){
- console.log(x.toFixed(2),y.toFixed(2))
-}</code></pre>
+    <pre class="prettyprint"><code>function onMouseDown(model,x,y){ console.log(x.toFixed(2),y.toFixed(2))}</code></pre>
 
 
 
@@ -1909,9 +1886,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function onMouseDown(app,x,y){
- console.log(x.toFixed(2),y.toFixed(2))
-}</code></pre>
+    <pre class="prettyprint"><code>function onMouseDown(app,x,y){ console.log(x.toFixed(2),y.toFixed(2))}</code></pre>
 
 
 
@@ -2122,8 +2097,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function onMouseMove(model,x,y){
-}</code></pre>
+    <pre class="prettyprint"><code>function onMouseMove(model,x,y){}</code></pre>
 
 
 
@@ -2334,8 +2308,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function onMouseMove(app,x,y){
-}</code></pre>
+    <pre class="prettyprint"><code>function onMouseMove(app,x,y){}</code></pre>
 
 
 
@@ -2546,8 +2519,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function onMouseUp(model,x,y){
-}</code></pre>
+    <pre class="prettyprint"><code>function onMouseUp(model,x,y){}</code></pre>
 
 
 
@@ -2758,8 +2730,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function onMouseUp(app,x,y){
-}</code></pre>
+    <pre class="prettyprint"><code>function onMouseUp(app,x,y){}</code></pre>
 
 
 
@@ -2924,10 +2895,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function paint(model,painter){
-  painter.clear()
-  painter.drawText(10,10,"hello")
-}</code></pre>
+    <pre class="prettyprint"><code>function paint(model,painter){  painter.clear()  painter.drawText(10,10,"hello")}</code></pre>
 
 
 
@@ -3092,10 +3060,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function paint(app,painter){
-  painter.clear()
-  painter.drawText(10,10,"hello")
-}</code></pre>
+    <pre class="prettyprint"><code>function paint(app,painter){  painter.clear()  painter.drawText(10,10,"hello")}</code></pre>
 
 
 
@@ -3113,8 +3078,7 @@
 
 
 <div class="description">
-    モデルスクリプトの初期化が終わったときに呼ばれる関数。
-onEnableよりも後のタイミング。起動時に複数のモデルやアイテムがある場合はそれらの読み込み後に呼ばれる。
+    モデルスクリプトの初期化が終わったときに呼ばれる関数。onEnableよりも後のタイミング。起動時に複数のモデルやアイテムがある場合はそれらの読み込み後に呼ばれる。
 </div>
 
 
@@ -3238,9 +3202,7 @@ onEnableよりも後のタイミング。起動時に複数のモデルやアイ
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function start(model){
- console.log(model.name)
-}</code></pre>
+    <pre class="prettyprint"><code>function start(model){ console.log(model.name)}</code></pre>
 
 
 
@@ -3258,8 +3220,7 @@ onEnableよりも後のタイミング。起動時に複数のモデルやアイ
 
 
 <div class="description">
-    アプリケーションスクリプトの初期化が終わったときに呼ばれる関数。
-onEnableよりも後のタイミング。起動時に複数のモデルやアイテムがある場合はそれらの読み込み後に呼ばれる。
+    アプリケーションスクリプトの初期化が終わったときに呼ばれる関数。onEnableよりも後のタイミング。起動時に複数のモデルやアイテムがある場合はそれらの読み込み後に呼ばれる。
 </div>
 
 
@@ -3383,8 +3344,7 @@ onEnableよりも後のタイミング。起動時に複数のモデルやアイ
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function start(app){
-}</code></pre>
+    <pre class="prettyprint"><code>function start(app){}</code></pre>
 
 
 
@@ -3549,9 +3509,7 @@ onEnableよりも後のタイミング。起動時に複数のモデルやアイ
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function update(model,params){
- params.Yaw = params.Yaw * 2 //顔の左右の動きを大きくする
-}</code></pre>
+    <pre class="prettyprint"><code>function update(model,params){ params.Yaw = params.Yaw * 2 //顔の左右の動きを大きくする}</code></pre>
 
 
 
@@ -3693,10 +3651,7 @@ onEnableよりも後のタイミング。起動時に複数のモデルやアイ
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>let count=0
-function update(app){
- count++
-}</code></pre>
+    <pre class="prettyprint"><code>let count=0function update(app){ count++}</code></pre>
 
 
 
@@ -3722,7 +3677,7 @@ function update(app){
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Fri Feb 02 2024 13:24:35 GMT+0900 (Japan Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Feb 22 2024 10:26:38 GMT+0900 (GMT+09:00)
 </footer>
 
 <script> prettyPrint(); </script>
