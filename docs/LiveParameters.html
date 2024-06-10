@@ -30,7 +30,8 @@
     
         <h2><span class="attribs"><span class="type-signature"></span></span>LiveParameters<span class="signature">()</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">トラッキングパラメータを管理するオブジェクトモデルスクリプトで引数として渡ってくる。</div>
+            <div class="class-description">トラッキングパラメータを管理するオブジェクト
+モデルスクリプトで引数として渡ってくる。</div>
         
     
 </header>
@@ -93,7 +94,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line30">line 30</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line29">line 29</a>
     </li></ul></dd>
     
 
@@ -124,9 +125,28 @@
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>function update(model, params) {    // 標準的なトラッキング値の直接の操作 (Live2Dパラメータとは異なるので紐づけの設定は別途必要)    params.Yaw = 0 // 顔の左右の向きの動きの値。-30~30の範囲。    params.Pitch = 0 // 顔の上下の向きの動きの値。-30~30の範囲。    params.Roll = 0 // 顔の左右の傾きの動きの値。-30~30の範囲。    params.PositionX = 0 // Live2Dモデルの位置のX座標の値。-1~1の範囲。    params.PositionY = 0 // Live2Dモデルの位置のY座標の値。-1~1の範囲。    params.PositionZ = 0 // Live2Dモデルの拡大率の値。-1~1の範囲。    params.BrowYLeft = 0 // 眉毛の上下の値。-1~1の範囲。    params.BrowYRight = 0 // 眉毛の上下の値。-1~1の範囲。    params.EyeOpenLeft = 1 // 目の開き具合の値。0~2の範囲。    params.EyeOpenRight = 1 // 目の開き具合の値。0~2の範囲。    params.EyeLookX = 0 // 視線の値。-1~1の範囲。    params.EyeLookY = 0 // 視線の値。-1~1の範囲。    params.MouthOpen = 0 // 口の開き具合の値。0~1の範囲。    params.MouthSpread = 0 // 口の幅の値。-1~1の範囲。}</code></pre>
+    <pre class="prettyprint"><code>function update(params) {
+    // 標準的なトラッキング値の直接の操作 (Live2Dパラメータとは異なるので紐づけの設定は別途必要)
+    params.Yaw = 0 // 顔の左右の向きの動きの値。-30~30の範囲。
+    params.Pitch = 0 // 顔の上下の向きの動きの値。-30~30の範囲。
+    params.Roll = 0 // 顔の左右の傾きの動きの値。-30~30の範囲。
+    params.PositionX = 0 // Live2Dモデルの位置のX座標の値。-1~1の範囲。
+    params.PositionY = 0 // Live2Dモデルの位置のY座標の値。-1~1の範囲。
+    params.PositionZ = 0 // Live2Dモデルの拡大率の値。-1~1の範囲。
+    params.BrowYLeft = 0 // 眉毛の上下の値。-1~1の範囲。
+    params.BrowYRight = 0 // 眉毛の上下の値。-1~1の範囲。
+    params.EyeOpenLeft = 1 // 目の開き具合の値。0~2の範囲。
+    params.EyeOpenRight = 1 // 目の開き具合の値。0~2の範囲。
+    params.EyeLookX = 0 // 視線の値。-1~1の範囲。
+    params.EyeLookY = 0 // 視線の値。-1~1の範囲。
+    params.MouthOpen = 0 // 口の開き具合の値。0~1の範囲。
+}</code></pre>
 
-    <pre class="prettyprint"><code>function start() {    for (let param of Live.parameters) {        console.log(param.id, param.min, param.base, param.max);    }}</code></pre>
+    <pre class="prettyprint"><code>function start() {
+    for (let param of live.parameters) {
+        console.log(param.id, param.min, param.base, param.max);
+    }
+}</code></pre>
 
 
 
@@ -204,7 +224,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line402">line 402</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line401">line 401</a>
     </li></ul></dd>
     
 
@@ -276,7 +296,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line408">line 408</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line407">line 407</a>
     </li></ul></dd>
     
 
@@ -348,7 +368,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line414">line 414</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line413">line 413</a>
     </li></ul></dd>
     
 
@@ -420,7 +440,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line420">line 420</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line419">line 419</a>
     </li></ul></dd>
     
 
@@ -492,7 +512,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line426">line 426</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line425">line 425</a>
     </li></ul></dd>
     
 
@@ -564,7 +584,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line432">line 432</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line431">line 431</a>
     </li></ul></dd>
     
 
@@ -636,7 +656,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line438">line 438</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line437">line 437</a>
     </li></ul></dd>
     
 
@@ -708,7 +728,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line444">line 444</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line443">line 443</a>
     </li></ul></dd>
     
 
@@ -780,7 +800,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line156">line 156</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line155">line 155</a>
     </li></ul></dd>
     
 
@@ -852,7 +872,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line198">line 198</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line197">line 197</a>
     </li></ul></dd>
     
 
@@ -924,7 +944,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line162">line 162</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line161">line 161</a>
     </li></ul></dd>
     
 
@@ -996,7 +1016,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line204">line 204</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line203">line 203</a>
     </li></ul></dd>
     
 
@@ -1068,7 +1088,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line168">line 168</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line167">line 167</a>
     </li></ul></dd>
     
 
@@ -1140,7 +1160,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line210">line 210</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line209">line 209</a>
     </li></ul></dd>
     
 
@@ -1212,7 +1232,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line174">line 174</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line173">line 173</a>
     </li></ul></dd>
     
 
@@ -1284,7 +1304,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line216">line 216</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line215">line 215</a>
     </li></ul></dd>
     
 
@@ -1356,7 +1376,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line180">line 180</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line179">line 179</a>
     </li></ul></dd>
     
 
@@ -1428,7 +1448,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line222">line 222</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line221">line 221</a>
     </li></ul></dd>
     
 
@@ -1500,7 +1520,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line186">line 186</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line185">line 185</a>
     </li></ul></dd>
     
 
@@ -1572,7 +1592,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line228">line 228</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line227">line 227</a>
     </li></ul></dd>
     
 
@@ -1644,7 +1664,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line192">line 192</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line191">line 191</a>
     </li></ul></dd>
     
 
@@ -1716,7 +1736,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line234">line 234</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line233">line 233</a>
     </li></ul></dd>
     
 
@@ -1788,7 +1808,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line240">line 240</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line239">line 239</a>
     </li></ul></dd>
     
 
@@ -1860,7 +1880,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line246">line 246</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line245">line 245</a>
     </li></ul></dd>
     
 
@@ -1932,7 +1952,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line258">line 258</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line257">line 257</a>
     </li></ul></dd>
     
 
@@ -2004,7 +2024,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line252">line 252</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line251">line 251</a>
     </li></ul></dd>
     
 
@@ -2076,7 +2096,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line264">line 264</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line263">line 263</a>
     </li></ul></dd>
     
 
@@ -2148,7 +2168,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line318">line 318</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line317">line 317</a>
     </li></ul></dd>
     
 
@@ -2220,7 +2240,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line324">line 324</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line323">line 323</a>
     </li></ul></dd>
     
 
@@ -2292,7 +2312,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line306">line 306</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line305">line 305</a>
     </li></ul></dd>
     
 
@@ -2364,7 +2384,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line312">line 312</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line311">line 311</a>
     </li></ul></dd>
     
 
@@ -2436,7 +2456,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line270">line 270</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line269">line 269</a>
     </li></ul></dd>
     
 
@@ -2508,7 +2528,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line282">line 282</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line281">line 281</a>
     </li></ul></dd>
     
 
@@ -2580,7 +2600,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line378">line 378</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line377">line 377</a>
     </li></ul></dd>
     
 
@@ -2652,7 +2672,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line384">line 384</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line383">line 383</a>
     </li></ul></dd>
     
 
@@ -2724,7 +2744,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line366">line 366</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line365">line 365</a>
     </li></ul></dd>
     
 
@@ -2796,7 +2816,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line372">line 372</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line371">line 371</a>
     </li></ul></dd>
     
 
@@ -2868,7 +2888,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line276">line 276</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line275">line 275</a>
     </li></ul></dd>
     
 
@@ -2940,7 +2960,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line288">line 288</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line287">line 287</a>
     </li></ul></dd>
     
 
@@ -3012,7 +3032,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line342">line 342</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line341">line 341</a>
     </li></ul></dd>
     
 
@@ -3084,7 +3104,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line348">line 348</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line347">line 347</a>
     </li></ul></dd>
     
 
@@ -3156,7 +3176,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line354">line 354</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line353">line 353</a>
     </li></ul></dd>
     
 
@@ -3228,7 +3248,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line360">line 360</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line359">line 359</a>
     </li></ul></dd>
     
 
@@ -3300,7 +3320,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line294">line 294</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line293">line 293</a>
     </li></ul></dd>
     
 
@@ -3372,7 +3392,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line300">line 300</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line299">line 299</a>
     </li></ul></dd>
     
 
@@ -3444,7 +3464,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line330">line 330</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line329">line 329</a>
     </li></ul></dd>
     
 
@@ -3516,7 +3536,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line336">line 336</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line335">line 335</a>
     </li></ul></dd>
     
 
@@ -3588,7 +3608,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line390">line 390</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line389">line 389</a>
     </li></ul></dd>
     
 
@@ -3660,7 +3680,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line396">line 396</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line395">line 395</a>
     </li></ul></dd>
     
 
@@ -3732,7 +3752,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line450">line 450</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line449">line 449</a>
     </li></ul></dd>
     
 
@@ -3804,7 +3824,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line456">line 456</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line455">line 455</a>
     </li></ul></dd>
     
 
@@ -3876,7 +3896,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line462">line 462</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line461">line 461</a>
     </li></ul></dd>
     
 
@@ -3948,7 +3968,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line72">line 72</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line71">line 71</a>
     </li></ul></dd>
     
 
@@ -4020,7 +4040,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line78">line 78</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line77">line 77</a>
     </li></ul></dd>
     
 
@@ -4092,7 +4112,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line96">line 96</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line95">line 95</a>
     </li></ul></dd>
     
 
@@ -4164,7 +4184,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line102">line 102</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line101">line 101</a>
     </li></ul></dd>
     
 
@@ -4236,7 +4256,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line84">line 84</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line83">line 83</a>
     </li></ul></dd>
     
 
@@ -4308,7 +4328,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line90">line 90</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line89">line 89</a>
     </li></ul></dd>
     
 
@@ -4380,7 +4400,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line120">line 120</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line119">line 119</a>
     </li></ul></dd>
     
 
@@ -4452,7 +4472,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line126">line 126</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line125">line 125</a>
     </li></ul></dd>
     
 
@@ -4524,7 +4544,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line132">line 132</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line131">line 131</a>
     </li></ul></dd>
     
 
@@ -4596,7 +4616,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line672">line 672</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line671">line 671</a>
     </li></ul></dd>
     
 
@@ -4668,7 +4688,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line678">line 678</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line677">line 677</a>
     </li></ul></dd>
     
 
@@ -4740,7 +4760,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line522">line 522</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line521">line 521</a>
     </li></ul></dd>
     
 
@@ -4812,7 +4832,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line528">line 528</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line527">line 527</a>
     </li></ul></dd>
     
 
@@ -4884,7 +4904,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line534">line 534</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line533">line 533</a>
     </li></ul></dd>
     
 
@@ -4956,7 +4976,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line570">line 570</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line569">line 569</a>
     </li></ul></dd>
     
 
@@ -5028,7 +5048,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line576">line 576</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line575">line 575</a>
     </li></ul></dd>
     
 
@@ -5100,7 +5120,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line588">line 588</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line587">line 587</a>
     </li></ul></dd>
     
 
@@ -5172,7 +5192,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line582">line 582</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line581">line 581</a>
     </li></ul></dd>
     
 
@@ -5244,7 +5264,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line564">line 564</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line563">line 563</a>
     </li></ul></dd>
     
 
@@ -5316,7 +5336,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line516">line 516</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line515">line 515</a>
     </li></ul></dd>
     
 
@@ -5388,7 +5408,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line558">line 558</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line557">line 557</a>
     </li></ul></dd>
     
 
@@ -5460,7 +5480,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line540">line 540</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line539">line 539</a>
     </li></ul></dd>
     
 
@@ -5532,7 +5552,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line546">line 546</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line545">line 545</a>
     </li></ul></dd>
     
 
@@ -5604,7 +5624,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line552">line 552</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line551">line 551</a>
     </li></ul></dd>
     
 
@@ -5676,7 +5696,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line600">line 600</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line599">line 599</a>
     </li></ul></dd>
     
 
@@ -5748,7 +5768,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line606">line 606</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line605">line 605</a>
     </li></ul></dd>
     
 
@@ -5820,7 +5840,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line612">line 612</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line611">line 611</a>
     </li></ul></dd>
     
 
@@ -5892,7 +5912,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line648">line 648</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line647">line 647</a>
     </li></ul></dd>
     
 
@@ -5964,7 +5984,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line654">line 654</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line653">line 653</a>
     </li></ul></dd>
     
 
@@ -6036,7 +6056,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line666">line 666</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line665">line 665</a>
     </li></ul></dd>
     
 
@@ -6108,7 +6128,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line660">line 660</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line659">line 659</a>
     </li></ul></dd>
     
 
@@ -6180,7 +6200,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line642">line 642</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line641">line 641</a>
     </li></ul></dd>
     
 
@@ -6252,7 +6272,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line594">line 594</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line593">line 593</a>
     </li></ul></dd>
     
 
@@ -6324,7 +6344,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line636">line 636</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line635">line 635</a>
     </li></ul></dd>
     
 
@@ -6396,7 +6416,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line618">line 618</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line617">line 617</a>
     </li></ul></dd>
     
 
@@ -6468,7 +6488,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line624">line 624</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line623">line 623</a>
     </li></ul></dd>
     
 
@@ -6540,7 +6560,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line630">line 630</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line629">line 629</a>
     </li></ul></dd>
     
 
@@ -6612,7 +6632,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line486">line 486</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line485">line 485</a>
     </li></ul></dd>
     
 
@@ -6684,7 +6704,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line504">line 504</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line503">line 503</a>
     </li></ul></dd>
     
 
@@ -6756,7 +6776,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line492">line 492</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line491">line 491</a>
     </li></ul></dd>
     
 
@@ -6828,7 +6848,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line510">line 510</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line509">line 509</a>
     </li></ul></dd>
     
 
@@ -6900,7 +6920,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line474">line 474</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line473">line 473</a>
     </li></ul></dd>
     
 
@@ -6972,7 +6992,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line480">line 480</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line479">line 479</a>
     </li></ul></dd>
     
 
@@ -7044,7 +7064,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line498">line 498</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line497">line 497</a>
     </li></ul></dd>
     
 
@@ -7116,7 +7136,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line468">line 468</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line467">line 467</a>
     </li></ul></dd>
     
 
@@ -7188,7 +7208,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line144">line 144</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line143">line 143</a>
     </li></ul></dd>
     
 
@@ -7260,7 +7280,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line150">line 150</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line149">line 149</a>
     </li></ul></dd>
     
 
@@ -7332,7 +7352,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line108">line 108</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line107">line 107</a>
     </li></ul></dd>
     
 
@@ -7404,7 +7424,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line114">line 114</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line113">line 113</a>
     </li></ul></dd>
     
 
@@ -7476,7 +7496,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line138">line 138</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line137">line 137</a>
     </li></ul></dd>
     
 
@@ -7548,7 +7568,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line42">line 42</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line41">line 41</a>
     </li></ul></dd>
     
 
@@ -7620,7 +7640,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line54">line 54</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line53">line 53</a>
     </li></ul></dd>
     
 
@@ -7692,7 +7712,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line60">line 60</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line59">line 59</a>
     </li></ul></dd>
     
 
@@ -7764,7 +7784,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line66">line 66</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line65">line 65</a>
     </li></ul></dd>
     
 
@@ -7836,7 +7856,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line48">line 48</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line47">line 47</a>
     </li></ul></dd>
     
 
@@ -7908,7 +7928,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line36">line 36</a>
+        <a href="live_parameters_doc.js.html">live_parameters_doc.js</a>, <a href="live_parameters_doc.js.html#line35">line 35</a>
     </li></ul></dd>
     
 
@@ -7942,13 +7962,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Drawable.html">Drawable</a></li><li><a href="Expression.html">Expression</a></li><li><a href="Live.html">Live</a></li><li><a href="LiveParameters.html">LiveParameters</a></li><li><a href="Model.html">Model</a></li><li><a href="Motion.html">Motion</a></li><li><a href="Painter.html">Painter</a></li><li><a href="Parameter.html">Parameter</a></li><li><a href="Part.html">Part</a></li><li><a href="Scene.html">Scene</a></li></ul><h3>Global</h3><ul><li><a href="global.html#onDestroy">onDestroy</a></li><li><a href="global.html#onDisable">onDisable</a></li><li><a href="global.html#onEnable">onEnable</a></li><li><a href="global.html#onKeyDown">onKeyDown</a></li><li><a href="global.html#onKeyUp">onKeyUp</a></li><li><a href="global.html#onMouseDown">onMouseDown</a></li><li><a href="global.html#onMouseMove">onMouseMove</a></li><li><a href="global.html#onMouseUp">onMouseUp</a></li><li><a href="global.html#paint">paint</a></li><li><a href="global.html#start">start</a></li><li><a href="global.html#update">update</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Drawable.html">Drawable</a></li><li><a href="Expression.html">Expression</a></li><li><a href="Live.html">Live</a></li><li><a href="LiveParameters.html">LiveParameters</a></li><li><a href="Model.html">Model</a></li><li><a href="Motion.html">Motion</a></li><li><a href="Painter.html">Painter</a></li><li><a href="Parameter.html">Parameter</a></li><li><a href="Part.html">Part</a></li><li><a href="Scene.html">Scene</a></li></ul><h3>Global</h3><ul><li><a href="global.html#live">live</a></li><li><a href="global.html#model">model</a></li><li><a href="global.html#onDestroy">onDestroy</a></li><li><a href="global.html#onDisable">onDisable</a></li><li><a href="global.html#onEnable">onEnable</a></li><li><a href="global.html#onKeyDown">onKeyDown</a></li><li><a href="global.html#onKeyUp">onKeyUp</a></li><li><a href="global.html#onMouseDown">onMouseDown</a></li><li><a href="global.html#onMouseMove">onMouseMove</a></li><li><a href="global.html#onMouseUp">onMouseUp</a></li><li><a href="global.html#paint">paint</a></li><li><a href="global.html#scene">scene</a></li><li><a href="global.html#start">start</a></li><li><a href="global.html#update">update</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Feb 22 2024 10:26:38 GMT+0900 (GMT+09:00)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Jun 10 2024 12:21:10 GMT+0900 (Japan Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>
