@@ -27,9 +27,53 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
+ * 色情報を表す。  
+ * 基本的な色は"red"や"black"などで指定可能。  
+ * 
+ * https://www.w3.org/TR/SVG11/types.html#ColorKeywords  
+ * 
+ * または"#FF0000"のような16進数表記も可能。console.logで表示するときはこちらになる。  
+ * Live.rgb(1,1,1)のような関数を使って指定することも可能  
+ * 
+ * @example
+ * function start() {
+ *     model.multiplyColor = "red"
+ *     console.log(model.multiplyColor) // #FF0000
+ * 
+ *     model.multiplyColor = "#FFFFFF"
+ *     model.screenColor = Live.rgb(0, 0, 1)
+ * }
+ */
+class Color {
+    /**
+     * 有効かどうか
+     * @type {boolean}
+     */
+    valid = 0
+
+    /**
+     * 赤成分
+     * @type {number}
+     */
+    r = 0
+
+    /**
+     * 緑成分
+     * @type {number}
+     */
+    g = 0
+
+    /**
+     * 青成分
+     * @type {number}
+     */
+    b = 0
+}
+
+/**
  * paint関数で引数として渡ってくる、描画のためのオブジェクト
  * @example
- * function paint(model, painter) {
+ * function paint(painter) {
  *     painter.clear()
  *     painter.pen = "black"
  *     painter.drawRect(0, 0, 100, 100)
@@ -160,14 +204,10 @@ class Painter {
     drawImage(x, y, image) { }
 }
 
-class Color {
-
-}
-
 /**
  * Cubismのパラメータを表すオブジェクト
  * @example
- * function start(model){
+ * function start(){
  *   for(let param of model.parameters){
  *       console.log("ID:",param.id)
  *       console.log("  Name:",param.name)
@@ -219,7 +259,7 @@ class Parameter {
 /**
  * Cubismのパーツを表すオブジェクト
  * @example
- * function start(model){
+ * function start(){
  *     for(let part of model.parts){
  *         console.log("ID:",part.id)
  *         console.log("  Name:",part.name)
@@ -235,6 +275,7 @@ class Parameter {
 class Part {
     /**
      * パーツID
+     * Cubism Editorで設定したもの
      * @type {string}
      */
     id = ""
@@ -285,7 +326,7 @@ class Part {
 /**
  * Cubismの描画オブジェクトを表すオブジェクト
  * @example
- * function start(model){
+ * function start(){
  *     for(let drawable of model.drawables){
  *         console.log("ID",drawable.id)
  *         console.log("  Opacity",drawable.opacity)
@@ -298,26 +339,31 @@ class Part {
  */
 class Drawable {
     /**
-     * 描画オブジェクトID
+     * 描画オブジェクトID  
+     * Cubism Editorで設定したもの
      * @type {string}
+     * @readonly
      */
     id = ""
 
     /**
      * 親パーツ
      * @type {{}}
+     * @readonly
      */
     parentPart = {}
 
     /**
      * 不透明度
      * @type {number}
+     * @readonly
      */
     opacity = 1
 
     /**
      * 描画順
      * @type {number}
+     * @readonly
      */
     drawOrder = 1
 
@@ -337,7 +383,7 @@ class Drawable {
 /**
  * Cubismのモーションを表すオブジェクト
  * @example
- * function start(model){
+ * function start(){
  *     for(let motion of model.motions){
  *         console.log("Name",motion.name)
  *     }
@@ -372,7 +418,7 @@ class Motion {
 /**
  * Cubismの表情を表すオブジェクト
  * @example
- * function start(model){
+ * function start(){
  *     for(let expression of model.expressions){
  *         console.log("Name",expression.name)
  *     }
@@ -386,7 +432,7 @@ class Motion {
  */
 class Expression {
     /**
-     * モーション名
+     * 表情名
      * @type {string}
      */
     name = ""
@@ -406,6 +452,14 @@ class Expression {
 
 /**
  * Live2Dモデルを操作するオブジェクト
+ * @example
+ * function start(){
+ *     console.log("parameters",model.parameters.length)
+ *     console.log("parts",model.parts.length)
+ *     console.log("drawables",model.drawables.length)
+ *     console.log("motions",model.motions.length)
+ *     console.log("expressions",model.expressions.length)
+ * }
  */
 class Model {
     /**
@@ -486,12 +540,22 @@ class Model {
     /**
      * 乗算色
      * @type {Color}
+     * @example
+     * function start(){
+     *     model.multiplyColor="#00ff00"
+     *     console.log(model.multiplyColor)
+     * }
      */
     multiplyColor = {}
 
     /**
      * スクリーン色
      * @type {Color}
+     * @example
+     * function start(){
+     *     model.screenColor="#ff0000"
+     *     console.log(model.screenColor)
+     * }
      */
     screenColor = {}
 
@@ -510,7 +574,7 @@ class Model {
      * @param {number} [param.Scale] - 大きさ
      * @param {number} [param.Rotation] - 回転
      * @param {number} [param.Delay=1] - 完了までの秒数
-     * @param {bool} [param.Absolute=false] - 絶対座標で移動するかどうか
+     * @param {boolean} [param.Absolute=false] - 絶対座標で移動するかどうか
      * @param {string} [param.InterpolationType="Linear"] - 補間方法
      * @example
   model.move({
@@ -523,16 +587,39 @@ class Model {
     }
 }
 
+/**
+ * アイテム
+ */
+class Item{
+    /**
+     * ID
+     * @type {string}
+     */
+    id = ""
+}
+
+/**
+ * 画像
+ */
+class Image{
+    /**
+     * ID
+     * @type {string}
+     */
+    id = ""
+
+    width = 0
+
+    height = 0
+}
 
 /**
  * シーン
  * @example
- * function start(app) {
- *     for(let scene of app.scenes){
- *         console.log("ID:",scene.id)
- *         console.log("  Model:",scene.models.length)
- *         console.log("  Item:",scene.items.length)
- *     }
+ * function start() {
+ *     console.log("ID:",scene.id)
+ *     console.log("  Model:",scene.models.length)
+ *     console.log("  Item:",scene.items.length)
  * }
  */
 class Scene {
@@ -557,20 +644,14 @@ class Scene {
 }
 
 /**
- * アプリケーション全体の操作をするオブジェクト
+ * グローバルにアクセスできるオブジェクト
  */
-class Application {
+class Live {
     /**
-     * 実行しているスクリプトのパス
-     * @type {number}
+     * スクリプトのバージョン
+     * @type {string}
      */
-    path = 0
-
-    /**
-     * シーンの一覧
-     * @type {Scene[]}
-     */
-    scenes = []
+    version = "2.0.0"
 
     /**
      * すべてのシーンのモデルの一覧
@@ -591,18 +672,6 @@ class Application {
     showMessage(message) {
 
     }
-}
-
-/**
- * グローバルにアクセスできるオブジェクト
- */
-class Live {
-    /**
-     * スクリプトのバージョン
-     * @type {string}
-     */
-    version = "1.0.0"
-
     /**
      * シーンの一覧
      * @type {Scene[]}
@@ -637,13 +706,13 @@ class Live {
     }
 
     /**
-     * 色の数値から#FFFFFFFFの形式に変更
+     * 色の数値から#FFFFFFの形式に変更
      * @param red {number} 0~1
      * @param green {number} 0~1
      * @param blue {number} 0~1
-     * @param alpha {number} 0~1
+     * @returns {Color}
      */
-    rgba(red, green, blue, alpha) {
+    rgb(red, green, blue) {
     }
 
     /**
@@ -673,7 +742,7 @@ class Live {
     /**
      * 複数行のテキスト入力ダイアログを開く
      */
-    openMultiTextDialog(title, text, content, selectedCallback, canceledCallback = {}, changedCallback = {}) { }
+    openMultiTextDialog(title, text, selectedCallback, canceledCallback = {}, changedCallback = {}) { }
 
     /**
      * 整数入力ダイアログを開く
@@ -705,13 +774,13 @@ class Live {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Drawable.html">Drawable</a></li><li><a href="Expression.html">Expression</a></li><li><a href="Live.html">Live</a></li><li><a href="LiveParameters.html">LiveParameters</a></li><li><a href="Model.html">Model</a></li><li><a href="Motion.html">Motion</a></li><li><a href="Painter.html">Painter</a></li><li><a href="Parameter.html">Parameter</a></li><li><a href="Part.html">Part</a></li><li><a href="Scene.html">Scene</a></li></ul><h3>Global</h3><ul><li><a href="global.html#live">live</a></li><li><a href="global.html#model">model</a></li><li><a href="global.html#onDestroy">onDestroy</a></li><li><a href="global.html#onDisable">onDisable</a></li><li><a href="global.html#onEnable">onEnable</a></li><li><a href="global.html#onKeyDown">onKeyDown</a></li><li><a href="global.html#onKeyUp">onKeyUp</a></li><li><a href="global.html#onMouseDown">onMouseDown</a></li><li><a href="global.html#onMouseMove">onMouseMove</a></li><li><a href="global.html#onMouseUp">onMouseUp</a></li><li><a href="global.html#paint">paint</a></li><li><a href="global.html#scene">scene</a></li><li><a href="global.html#start">start</a></li><li><a href="global.html#update">update</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Color.html">Color</a></li><li><a href="Drawable.html">Drawable</a></li><li><a href="Expression.html">Expression</a></li><li><a href="Image.html">Image</a></li><li><a href="Item.html">Item</a></li><li><a href="Live.html">Live</a></li><li><a href="LiveParameters.html">LiveParameters</a></li><li><a href="Model.html">Model</a></li><li><a href="Motion.html">Motion</a></li><li><a href="Painter.html">Painter</a></li><li><a href="Parameter.html">Parameter</a></li><li><a href="Part.html">Part</a></li><li><a href="Scene.html">Scene</a></li></ul><h3>Global</h3><ul><li><a href="global.html#live">live</a></li><li><a href="global.html#model">model</a></li><li><a href="global.html#onDestroy">onDestroy</a></li><li><a href="global.html#onDisable">onDisable</a></li><li><a href="global.html#onEnable">onEnable</a></li><li><a href="global.html#onKeyDown">onKeyDown</a></li><li><a href="global.html#onKeyUp">onKeyUp</a></li><li><a href="global.html#onMouseDown">onMouseDown</a></li><li><a href="global.html#onMouseMove">onMouseMove</a></li><li><a href="global.html#onMouseUp">onMouseUp</a></li><li><a href="global.html#paint">paint</a></li><li><a href="global.html#scene">scene</a></li><li><a href="global.html#start">start</a></li><li><a href="global.html#update">update</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Jun 10 2024 12:21:10 GMT+0900 (Japan Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Tue Oct 29 2024 15:11:30 GMT+0900 (Japan Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

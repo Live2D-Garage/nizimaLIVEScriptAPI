@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Parameter</title>
+    <title>JSDoc: Class: Color</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Parameter</h1>
+    <h1 class="page-title">Class: Color</h1>
 
     
 
@@ -28,9 +28,15 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Parameter<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Color<span class="signature">()</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">Cubismのパラメータを表すオブジェクト</div>
+            <div class="class-description">色情報を表す。  
+基本的な色は"red"や"black"などで指定可能。  
+
+https://www.w3.org/TR/SVG11/types.html#ColorKeywords  
+
+または"#FF0000"のような16進数表記も可能。console.logで表示するときはこちらになる。  
+Live.rgb(1,1,1)のような関数を使って指定することも可能</div>
         
     
 </header>
@@ -45,7 +51,7 @@
     
 
     
-    <h4 class="name" id="Parameter"><span class="type-signature"></span>new Parameter<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Color"><span class="type-signature"></span>new Color<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -93,7 +99,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line193">line 193</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line19">line 19</a>
     </li></ul></dd>
     
 
@@ -124,15 +130,12 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function start(){
-  for(let param of model.parameters){
-      console.log("ID:",param.id)
-      console.log("  Name:",param.name)
-      console.log("  Default Value:",param.defaultValue)
-      console.log("  Max:",param.max)
-      console.log("  Min:",param.min)
-      console.log("  Value:",param.value)
-  }
+    <pre class="prettyprint"><code>function start() {
+    model.multiplyColor = "red"
+    console.log(model.multiplyColor) // #FF0000
+
+    model.multiplyColor = "#FFFFFF"
+    model.screenColor = Live.rgb(0, 0, 1)
 }</code></pre>
 
 
@@ -157,13 +160,13 @@
 
         
             
-<h4 class="name" id="defaultValue"><span class="type-signature"></span>defaultValue<span class="type-signature"> :number</span></h4>
+<h4 class="name" id="b"><span class="type-signature"></span>b<span class="type-signature"> :number</span></h4>
 
 
 
 
 <div class="description">
-    パラメータの初期値
+    青成分
 </div>
 
 
@@ -211,7 +214,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line228">line 228</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line42">line 42</a>
     </li></ul></dd>
     
 
@@ -229,85 +232,13 @@
 
         
             
-<h4 class="name" id="id"><span class="type-signature"></span>id<span class="type-signature"> :string</span></h4>
+<h4 class="name" id="g"><span class="type-signature"></span>g<span class="type-signature"> :number</span></h4>
 
 
 
 
 <div class="description">
-    パラメータのID
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">string</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line198">line 198</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="max"><span class="type-signature"></span>max<span class="type-signature"> :number</span></h4>
-
-
-
-
-<div class="description">
-    パラメータの最大値
+    緑成分
 </div>
 
 
@@ -355,7 +286,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line222">line 222</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line36">line 36</a>
     </li></ul></dd>
     
 
@@ -373,13 +304,13 @@
 
         
             
-<h4 class="name" id="min"><span class="type-signature"></span>min<span class="type-signature"> :number</span></h4>
+<h4 class="name" id="r"><span class="type-signature"></span>r<span class="type-signature"> :number</span></h4>
 
 
 
 
 <div class="description">
-    パラメータの最小値
+    赤成分
 </div>
 
 
@@ -427,7 +358,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line216">line 216</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line30">line 30</a>
     </li></ul></dd>
     
 
@@ -445,13 +376,13 @@
 
         
             
-<h4 class="name" id="name"><span class="type-signature"></span>name<span class="type-signature"> :string</span></h4>
+<h4 class="name" id="valid"><span class="type-signature"></span>valid<span class="type-signature"> :boolean</span></h4>
 
 
 
 
 <div class="description">
-    パラメータの名前。cdi.jsonに記載が無い場合は空文字列
+    有効かどうか
 </div>
 
 
@@ -460,7 +391,7 @@
     <ul>
         <li>
             
-<span class="param-type">string</span>
+<span class="param-type">boolean</span>
 
 
         </li>
@@ -499,79 +430,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line210">line 210</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="value"><span class="type-signature"></span>value<span class="type-signature"> :number</span></h4>
-
-
-
-
-<div class="description">
-    パラメータの値
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">number</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line204">line 204</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line24">line 24</a>
     </li></ul></dd>
     
 
