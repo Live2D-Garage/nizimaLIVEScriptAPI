@@ -27,6 +27,160 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
+ * エフェクトを操作するためのオブジェクト
+ * @example
+ * function start(){
+ *   let effect = scene.effect.model //モデルエフェクトを操作
+ *   if(effect.shaderIds.length == 0){
+ *     let layer = effect.add("Aberration") //特殊効果を追加
+ *     console.log(layer.parameterIds) //操作できるエフェクトパラメータ
+ *   }
+ * }
+ * function update(){
+ *   let effect = scene.effect.model
+ *   let sin = Math.sin(Date.now()/1000)
+ *   effect.brightness = sin //明るさを変更
+ *   effect.layer("Aberration")?.setParameter("radian",sin) //特殊効果のパラメータを変更 
+ * }
+ */
+class Effect{
+    /**
+     * 色調補正の有効状態
+     * 関連する値を編集すると自動で有効になる
+     * @type {boolean}
+     */ 
+    colorCollectionEnabled = false
+
+    /**
+     * 色調補正 / 彩度 
+     * 0~2
+     * @type {number} 
+     */
+    saturation = 1
+
+    /**
+     * 色調補正 / 明るさ
+     *  -1~1
+     * @type {number}
+     */
+    brightness = 0
+
+    /**
+     * 色調補正 / コントラスト
+     * -1~1
+     * @type {number} 
+     */
+    contrast = 0
+
+    /**
+     * 色調補正 / カラー
+     * @type {Color}
+     */ 
+    blendColor = "#00ffffff"
+    
+    /**
+     * 色調補正 / ブレンドモード
+     * 注意：各モードの名前は2.0時点
+     *  "Mix"|"Multiply"|"BurninColor"|"BurninLinear"|"Screen"|"Add"|"Overlay"|"SoftLight"|"Colorize"
+     * @type {string}
+     */
+    blendMode = "Colorize"
+    
+    /**
+     * 特殊効果の有効状態
+     * @type {boolean}
+     */
+    shaderEffectEnabled = false
+
+    /**
+     * このインスタンスの示すターゲットに追加可能な特殊効果（シェーダー）のID一覧
+     * @type {string[]}
+     * @since nizima LIVE 2.3.0
+     */
+    availableShaderIds = []
+
+    /**
+     * 現在の特殊効果
+     */
+    shaderIds = []
+
+    /**
+     * モデルのエフェクト。ルートのエフェクトからのみ呼び出し可能
+     * @type {Effect}
+     */
+    model = new Effect()
+
+    /**
+     * 背景のエフェクト。ルートのエフェクトからのみ呼び出し可能
+     * @type {Effect}
+     */ 
+    background = new Effect()
+
+    /**
+     * 特殊効果を追加する
+     * ID は availableShaderIds を参照
+     * @param {string} shaderId
+     * @returns {EffectLayer} 追加された特殊効果
+     */ 
+    add(shaderId){
+    }
+
+    /**
+     * 特殊効果を削除する
+     * @param {number} 
+     */
+    remove(index){
+    }
+
+    /**
+     * レイヤーを取得する
+     * @param {number} 
+     * @returns {EffectLayer}
+     */ 
+    layer(index){
+    }
+
+    /**
+     * IDからレイヤーを取得する。複数ある場合は先に見つかった方のみ返す
+     * @param {string} shaderId 
+     * @returns {EffectLayer}
+     */
+    layer(shaderId){
+    }
+}
+
+/**
+ * 特殊効果の一つを表すオブジェクト
+ */
+class EffectLayer{
+    /**
+     * 有効かどうか
+     * @type {boolean}
+     */
+    enabled = false
+
+    /**
+     * パラメータの一覧
+     * @type {string[]}
+     */ 
+    parameterIds = []
+
+    /**
+     * インデックス
+     * @type {number}
+     */  
+    index = 0
+
+    /**
+     * パラメータを設定する
+     * @param {string} id
+     * @param {number} value
+     */ 
+    setParameter(id,value){
+    }
+}
+
+/**
  * 色情報を表す。  
  * 基本的な色は"red"や"black"などで指定可能。  
  * 
@@ -378,6 +532,22 @@ class Drawable {
      * @type {Color}
      */
     screenColor = {}
+    
+    /**
+     * モデルデータ（.moc3）で設定された乗算色（編集不可・参照専用）
+     * @type {Color}
+     * @readonly
+     * @since nizima LIVE 2.3.0
+     */
+    mocMultiplyColor = {}
+
+    /**
+     * モデルデータ（.moc3）で設定されたスクリーン色（編集不可・参照専用）
+     * @type {Color}
+     * @readonly
+     * @since nizima LIVE 2.3.0
+     */
+    mocScreenColor = {}
 }
 
 /**
@@ -412,6 +582,15 @@ class Motion {
      * 停止する
      */
     stop() {
+    }
+
+    /**
+     * このモーションが現在再生中かどうかを返します。
+     * @returns {boolean} 再生中なら true
+     * @since nizima LIVE 2.3.0
+     */
+    isPlaying() {
+        return false
     }
 }
 
@@ -539,22 +718,34 @@ class Model {
 
     /**
      * 乗算色
+     *
+     * このプロパティを設定すると、モデル内のすべての Drawable の multiplyColor に同じ値が一括で適用されます。
+     * 個別の Drawable の multiplyColor を直接変更することも可能です。
+     *
+     * 取得時は、Drawable 配列の先頭（model.drawables[0]）の multiplyColor の値が返されます。
+     *
      * @type {Color}
      * @example
      * function start(){
-     *     model.multiplyColor="#00ff00"
-     *     console.log(model.multiplyColor)
+     *     model.multiplyColor = "#00ff00" // すべてのDrawableに適用
+     *     console.log(model.multiplyColor) // model.drawables[0] の値が返る
      * }
      */
     multiplyColor = {}
 
     /**
      * スクリーン色
+     * 
+     * このプロパティを設定すると、モデル内のすべての Drawable の screenColor に同じ値が一括で適用されます。
+     * 個別の Drawable の screenColor を直接変更することも可能です。
+     * 
+     * 取得時は、Drawable 配列の先頭（model.drawables[0]）の screenColor の値が返されます。
+     * 
      * @type {Color}
      * @example
      * function start(){
-     *     model.screenColor="#ff0000"
-     *     console.log(model.screenColor)
+     *    model.screenColor = "#0000ff" // すべてのDrawableに適用
+     *    console.log(model.screenColor) // model.drawables[0] の値が返る
      * }
      */
     screenColor = {}
@@ -629,6 +820,18 @@ class Scene {
      */
     id = ""
 
+    /**
+     * 幅
+     * @type {number}
+     */
+    width = 0
+
+    /**
+     * 高さ
+     * @type {number}
+     */
+    height = 0
+
 
     /**
      * モデル一覧(Live2Dアイテムを除く)
@@ -666,13 +869,6 @@ class Live {
     items = []
 
     /**
-     * 右上にメッセージを表示する
-     * @param message {string}
-     */
-    showMessage(message) {
-
-    }
-    /**
      * シーンの一覧
      * @type {Scene[]}
      */
@@ -690,6 +886,21 @@ class Live {
      * @property {boolean} repeat 最大値と最小値がつながる場合にtrue
      */
     parameters = []
+
+    /**
+     * エフェクト追加時に指定可能なシェーダーの ID 一覧
+     * 注意：本ドキュメント記載の名前は 2.0 時点。また、ターゲットによってはエフェクトの動作が未定義の場合があります。（背景に逆光エフェクトを使用など）
+     * @deprecated nizima LIVE 2.3.0 以降非推奨。代わりに Effect クラスの availableShaderIds を使用してください。
+     */
+    shaderEffectLayerIds = ["Aberration","AberrationCamera","AfterImage","AreaScaling","Blur","Backlight","Binary","BlendColor","BlockTransition","Bloom","Brightness","CameraShake","Colorize","Comet","Confetti","CRT","Diffusion","Dither","Dust","EditableParticle","Flare","Gaming","Glitch","Glow","Gradation","Grain","LightFilter","Mosaic","Outline","Plexus","Posterize","RainWindow","Saturation","Shadow","Sharpen","SlideTransition","Smoke","Snow","SwapColor","TextureSynthesis","TintTritone","Transition","Vignette","Woble"]
+
+    /**
+     * 右上にメッセージを表示する
+     * @param message {string}
+     */
+    showMessage(message) {
+
+    }
 
     /**
      * LIVEパラメータを追加する
@@ -716,51 +927,118 @@ class Live {
     }
 
     /**
-     * コンボボックスでの選択ダイアログを開く
-     * ※ モーダルダイアログで開きます
-     * @param title {string} ウィンドウタイトル
-     * @param text {string} 本文
-     * @param list {string[]} 選択肢の一覧
-     * @param selectedCallback {Function} 選択したときに呼ばれる関数
-     * @param canceledCallback {Function} キャンセルしたときに呼ばれる関数
-     * @param changedCallback {Function} 変更があったときに呼ばれる関数
+     * コンボボックスでの選択ダイアログを開きます。  
+     * モーダルダイアログとして表示され、ユーザーがリストから選択できます。
+     * 
+     * @param {string} title - ダイアログのタイトル
+     * @param {string} text - ダイアログの説明文
+     * @param {string[]} list - 選択肢の配列
+     * @param {function(string): void} selectedCallback - 選択が確定されたときに呼ばれるコールバック。選択された値が渡されます。
+     * @param {function(): void} [canceledCallback] - キャンセルされたときに呼ばれるコールバック（省略可）
+     * @param {function(string): void} [changedCallback] - 選択肢が変更されたときに呼ばれるコールバック（省略可）
+     * @example
+     * Live.openListDialog(
+     *   "色を選択",
+     *   "好きな色を選んでください",
+     *   ["赤", "青", "緑"],
+     *   function(value) { console.log("選択:", value); },
+     *   function() { console.log("キャンセルされました"); },
+     *   function(value) { console.log("変更:", value); }
+     * );
      */
     openListDialog(title, text, list,
         selectedCallback, canceledCallback = {}, changedCallback = {}) {
     }
 
     /**
-     * カラーダイアログを開く
+     * カラーダイアログを開きます。  
+     * ユーザーが色を選択できます。
+     * 
+     * @param {function(number, number, number, number): void} selectedCallback - 色が選択されたときに呼ばれるコールバック。各成分は0.0～1.0の範囲です。
+     * @param {function(): void} [canceledCallback] - キャンセルされたときに呼ばれるコールバック（省略可）
+     * @param {function(number, number, number, number): void} [changedCallback] - 色が変更されたときに呼ばれるコールバック（省略可）
+     * @example
+     * Live.openColorDialog(
+     *   function(r, g, b, a) { console.log("選択:", r, g, b, a); },
+     *   function() { console.log("キャンセル"); },
+     *   function(r, g, b, a) { console.log("変更:", r, g, b, a); }
+     * );
      */
     openColorDialog(selectedCallback, canceledCallback = {}, changedCallback = {}) { }
 
     /**
-     * テキスト入力ダイアログを開く
+     * テキスト入力ダイアログを開きます。  
+     * ユーザーが1行のテキストを入力できます。
+     * 
+     * @param {string} title - ダイアログのタイトル
+     * @param {string} text - ダイアログの説明文
+     * @param {function(string): void} selectedCallback - 入力が確定されたときに呼ばれるコールバック。入力されたテキストが渡されます。
+     * @param {function(): void} [canceledCallback] - キャンセルされたときに呼ばれるコールバック（省略可）
+     * @param {function(string): void} [changedCallback] - 入力内容が変更されたときに呼ばれるコールバック（省略可）
      */
     openTextDialog(title, text, selectedCallback, canceledCallback = {}, changedCallback = {}) { }
 
     /**
-     * 複数行のテキスト入力ダイアログを開く
+     * 複数行のテキスト入力ダイアログを開きます。  
+     * ユーザーが複数行のテキストを入力できます。
+     * 
+     * @param {string} title - ダイアログのタイトル
+     * @param {string} text - 初期テキスト
+     * @param {function(string): void} selectedCallback - 入力が確定されたときに呼ばれるコールバック。入力されたテキストが渡されます。
+     * @param {function(): void} [canceledCallback] - キャンセルされたときに呼ばれるコールバック（省略可）
+     * @param {function(string): void} [changedCallback] - 入力内容が変更されたときに呼ばれるコールバック（省略可）
      */
     openMultiTextDialog(title, text, selectedCallback, canceledCallback = {}, changedCallback = {}) { }
 
     /**
-     * 整数入力ダイアログを開く
+     * 整数入力ダイアログを開きます。  
+     * ユーザーが整数値を入力できます。
+     * 
+     * @param {string} title - ダイアログのタイトル
+     * @param {string} text - ダイアログの説明文
+     * @param {number} [min=0] - 入力可能な最小値
+     * @param {number} [value=0] - 初期値
+     * @param {number} [max=100] - 入力可能な最大値
+     * @param {function(number): void} [selectedCallback] - 入力が確定されたときに呼ばれるコールバック（省略可）
+     * @param {function(): void} [canceledCallback] - キャンセルされたときに呼ばれるコールバック（省略可）
+     * @param {function(number): void} [changedCallback] - 入力値が変更されたときに呼ばれるコールバック（省略可）
      */
     openIntDialog(title, text, min = 0, value = 0, max = 100, selectedCallback = {}, canceledCallback = {}, changedCallback = {}) { }
 
     /**
-     * 小数入力ダイアログを開く
+     * 小数入力ダイアログを開きます。  
+     * ユーザーが小数値を入力できます。
+     * 
+     * @param {string} title - ダイアログのタイトル
+     * @param {string} text - ダイアログの説明文
+     * @param {number} [min=0] - 入力可能な最小値
+     * @param {number} [value=0] - 初期値
+     * @param {number} [max=100] - 入力可能な最大値
+     * @param {function(number): void} [selectedCallback] - 入力が確定されたときに呼ばれるコールバック（省略可）
+     * @param {function(): void} [canceledCallback] - キャンセルされたときに呼ばれるコールバック（省略可）
+     * @param {function(number): void} [changedCallback] - 入力値が変更されたときに呼ばれるコールバック（省略可）
      */
     openFloatDialog(title, text, min = 0, value = 0, max = 100, selectedCallback = {}, canceledCallback = {}, changedCallback = {}) { }
 
     /**
-     * エラーダイアログを開く
+     * エラーダイアログを開きます。  
+     * エラー内容をユーザーに通知します。
+     * 
+     * @param {string} title - ダイアログのタイトル
+     * @param {string} text - エラー内容
+     * @param {function(): void} [acceptedCallback] - OKボタンが押されたときに呼ばれるコールバック（省略可）
      */
     openErrorDialog(title, text, acceptedCallback = {}) { }
 
     /**
-     * メッセージダイアログを開く
+     * メッセージダイアログを開きます。  
+     * 情報や確認メッセージを表示します。
+     * 
+     * @param {string} title - ダイアログのタイトル
+     * @param {string} text - メッセージ内容
+     * @param {function(): void} [acceptedCallback] - OKボタンが押されたときに呼ばれるコールバック（省略可）
+     * @param {function(): void} [canceledCallback] - キャンセルされたときに呼ばれるコールバック（省略可）
+     * @param {string} [detail] - 詳細情報（省略可）
      */
     openMessageDialog(title, text, acceptedCallback = {}, canceledCallback = {}, detail = {}) { }
 }
@@ -774,13 +1052,13 @@ class Live {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Color.html">Color</a></li><li><a href="Drawable.html">Drawable</a></li><li><a href="Expression.html">Expression</a></li><li><a href="Image.html">Image</a></li><li><a href="Item.html">Item</a></li><li><a href="Live.html">Live</a></li><li><a href="LiveParameters.html">LiveParameters</a></li><li><a href="Model.html">Model</a></li><li><a href="Motion.html">Motion</a></li><li><a href="Painter.html">Painter</a></li><li><a href="Parameter.html">Parameter</a></li><li><a href="Part.html">Part</a></li><li><a href="Scene.html">Scene</a></li></ul><h3>Global</h3><ul><li><a href="global.html#live">live</a></li><li><a href="global.html#model">model</a></li><li><a href="global.html#onDestroy">onDestroy</a></li><li><a href="global.html#onDisable">onDisable</a></li><li><a href="global.html#onEnable">onEnable</a></li><li><a href="global.html#onKeyDown">onKeyDown</a></li><li><a href="global.html#onKeyUp">onKeyUp</a></li><li><a href="global.html#onMouseDown">onMouseDown</a></li><li><a href="global.html#onMouseMove">onMouseMove</a></li><li><a href="global.html#onMouseUp">onMouseUp</a></li><li><a href="global.html#paint">paint</a></li><li><a href="global.html#scene">scene</a></li><li><a href="global.html#start">start</a></li><li><a href="global.html#update">update</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Color.html">Color</a></li><li><a href="Drawable.html">Drawable</a></li><li><a href="Effect.html">Effect</a></li><li><a href="EffectLayer.html">EffectLayer</a></li><li><a href="Expression.html">Expression</a></li><li><a href="Image.html">Image</a></li><li><a href="Item.html">Item</a></li><li><a href="Live.html">Live</a></li><li><a href="LiveParameters.html">LiveParameters</a></li><li><a href="Model.html">Model</a></li><li><a href="Motion.html">Motion</a></li><li><a href="Painter.html">Painter</a></li><li><a href="Parameter.html">Parameter</a></li><li><a href="Part.html">Part</a></li><li><a href="Scene.html">Scene</a></li></ul><h3>Global</h3><ul><li><a href="global.html#live">live</a></li><li><a href="global.html#model">model</a></li><li><a href="global.html#onDestroy">onDestroy</a></li><li><a href="global.html#onDisable">onDisable</a></li><li><a href="global.html#onEnable">onEnable</a></li><li><a href="global.html#onKeyDown">onKeyDown</a></li><li><a href="global.html#onKeyUp">onKeyUp</a></li><li><a href="global.html#onMouseDown">onMouseDown</a></li><li><a href="global.html#onMouseMove">onMouseMove</a></li><li><a href="global.html#onMouseUp">onMouseUp</a></li><li><a href="global.html#paint">paint</a></li><li><a href="global.html#scene">scene</a></li><li><a href="global.html#start">start</a></li><li><a href="global.html#update">update</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Tue Oct 29 2024 15:11:30 GMT+0900 (Japan Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Thu May 29 2025 18:18:03 GMT+0900 (GMT+09:00)
 </footer>
 
 <script> prettyPrint(); </script>

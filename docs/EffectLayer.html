@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Motion</title>
+    <title>JSDoc: Class: EffectLayer</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Motion</h1>
+    <h1 class="page-title">Class: EffectLayer</h1>
 
     
 
@@ -28,9 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Motion<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>EffectLayer<span class="signature">()</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">Cubismのモーションを表すオブジェクト</div>
+            <div class="class-description">特殊効果の一つを表すオブジェクト</div>
         
     
 </header>
@@ -45,7 +45,7 @@
     
 
     
-    <h4 class="name" id="Motion"><span class="type-signature"></span>new Motion<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="EffectLayer"><span class="type-signature"></span>new EffectLayer<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -93,7 +93,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line539">line 539</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line127">line 127</a>
     </li></ul></dd>
     
 
@@ -122,20 +122,6 @@
 
 
 
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>function start(){
-    for(let motion of model.motions){
-        console.log("Name",motion.name)
-    }
-
-    if(model.motions.length>0){
-        let motion=model.motions[Math.floor(Math.random() * model.motions.length)];
-        motion.start()
-    }
-}</code></pre>
-
-
 
     
     </div>
@@ -157,13 +143,13 @@
 
         
             
-<h4 class="name" id="name"><span class="type-signature"></span>name<span class="type-signature"> :string</span></h4>
+<h4 class="name" id="enabled"><span class="type-signature"></span>enabled<span class="type-signature"> :boolean</span></h4>
 
 
 
 
 <div class="description">
-    モーション名
+    有効かどうか
 </div>
 
 
@@ -172,7 +158,7 @@
     <ul>
         <li>
             
-<span class="param-type">string</span>
+<span class="param-type">boolean</span>
 
 
         </li>
@@ -211,7 +197,151 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line544">line 544</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line132">line 132</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="index"><span class="type-signature"></span>index<span class="type-signature"> :number</span></h4>
+
+
+
+
+<div class="description">
+    インデックス
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line144">line 144</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="parameterIds"><span class="type-signature"></span>parameterIds<span class="type-signature"> :Array.&lt;string></span></h4>
+
+
+
+
+<div class="description">
+    パラメータの一覧
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;string></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line138">line 138</a>
     </li></ul></dd>
     
 
@@ -239,7 +369,7 @@
     
 
     
-    <h4 class="name" id="isPlaying"><span class="type-signature"></span>isPlaying<span class="signature">()</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    <h4 class="name" id="setParameter"><span class="type-signature"></span>setParameter<span class="signature">(id, value)</span><span class="type-signature"></span></h4>
     
 
     
@@ -247,7 +377,7 @@
 
 
 <div class="description">
-    このモーションが現在再生中かどうかを返します。
+    パラメータを設定する
 </div>
 
 
@@ -258,205 +388,76 @@
 
 
 
-
-
-
-
-<dl class="details">
-
+    <h5>Parameters:</h5>
     
 
-    
-    <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>nizima LIVE 2.3.0</li></ul></dd>
-    
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line564">line 564</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
+        <th>Type</th>
 
         
-<div class="param-desc">
-    再生中なら true
-</div>
 
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
         
-<span class="param-type">boolean</span>
 
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-    </dd>
-</dl>
-
+    <tbody>
     
 
-
-
-
-
-        
+        <tr>
+            
+                <td class="name"><code>id</code></td>
             
 
-    
-
-    
-    <h4 class="name" id="start"><span class="type-signature"></span>start<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
 
 
+            
+            </td>
 
-<div class="description">
-    モーションを開始する
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line549">line 549</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
             
 
-    
+            
+
+            <td class="description last"></td>
+        </tr>
 
     
-    <h4 class="name" id="stop"><span class="type-signature"></span>stop<span class="signature">()</span><span class="type-signature"></span></h4>
-    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
 
     
-
-
-
-<div class="description">
-    停止する
-</div>
-
-
-
-
-
-
-
+    </tbody>
+</table>
 
 
 
@@ -492,7 +493,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line556">line 556</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line151">line 151</a>
     </li></ul></dd>
     
 

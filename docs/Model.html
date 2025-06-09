@@ -93,7 +93,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line436">line 436</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line615">line 615</a>
     </li></ul></dd>
     
 
@@ -208,7 +208,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line471">line 471</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line650">line 650</a>
     </li></ul></dd>
     
 
@@ -280,7 +280,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line501">line 501</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line680">line 680</a>
     </li></ul></dd>
     
 
@@ -352,7 +352,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line486">line 486</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line665">line 665</a>
     </li></ul></dd>
     
 
@@ -377,6 +377,11 @@
 
 <div class="description">
     乗算色
+
+このプロパティを設定すると、モデル内のすべての Drawable の multiplyColor に同じ値が一括で適用されます。
+個別の Drawable の multiplyColor を直接変更することも可能です。
+
+取得時は、Drawable 配列の先頭（model.drawables[0]）の multiplyColor の値が返されます。
 </div>
 
 
@@ -424,7 +429,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line521">line 521</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line706">line 706</a>
     </li></ul></dd>
     
 
@@ -442,8 +447,8 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>function start(){
-    model.multiplyColor="#00ff00"
-    console.log(model.multiplyColor)
+    model.multiplyColor = "#00ff00" // すべてのDrawableに適用
+    console.log(model.multiplyColor) // model.drawables[0] の値が返る
 }</code></pre>
 
 
@@ -504,7 +509,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line441">line 441</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line620">line 620</a>
     </li></ul></dd>
     
 
@@ -576,7 +581,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line456">line 456</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line635">line 635</a>
     </li></ul></dd>
     
 
@@ -601,6 +606,11 @@
 
 <div class="description">
     スクリーン色
+
+このプロパティを設定すると、モデル内のすべての Drawable の screenColor に同じ値が一括で適用されます。
+個別の Drawable の screenColor を直接変更することも可能です。
+
+取得時は、Drawable 配列の先頭（model.drawables[0]）の screenColor の値が返されます。
 </div>
 
 
@@ -648,7 +658,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line532">line 532</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line723">line 723</a>
     </li></ul></dd>
     
 
@@ -666,8 +676,8 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>function start(){
-    model.screenColor="#ff0000"
-    console.log(model.screenColor)
+   model.screenColor = "#0000ff" // すべてのDrawableに適用
+   console.log(model.screenColor) // model.drawables[0] の値が返る
 }</code></pre>
 
 
@@ -785,7 +795,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line478">line 478</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line657">line 657</a>
     </li></ul></dd>
     
 
@@ -940,7 +950,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line508">line 508</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line687">line 687</a>
     </li></ul></dd>
     
 
@@ -1095,7 +1105,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line493">line 493</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line672">line 672</a>
     </li></ul></dd>
     
 
@@ -1545,7 +1555,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line557">line 557</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line748">line 748</a>
     </li></ul></dd>
     
 
@@ -1690,7 +1700,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line448">line 448</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line627">line 627</a>
     </li></ul></dd>
     
 
@@ -1845,7 +1855,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line463">line 463</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line642">line 642</a>
     </li></ul></dd>
     
 
@@ -1951,7 +1961,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line538">line 538</a>
+        <a href="class_doc.js.html">class_doc.js</a>, <a href="class_doc.js.html#line729">line 729</a>
     </li></ul></dd>
     
 
@@ -1997,13 +2007,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Color.html">Color</a></li><li><a href="Drawable.html">Drawable</a></li><li><a href="Expression.html">Expression</a></li><li><a href="Image.html">Image</a></li><li><a href="Item.html">Item</a></li><li><a href="Live.html">Live</a></li><li><a href="LiveParameters.html">LiveParameters</a></li><li><a href="Model.html">Model</a></li><li><a href="Motion.html">Motion</a></li><li><a href="Painter.html">Painter</a></li><li><a href="Parameter.html">Parameter</a></li><li><a href="Part.html">Part</a></li><li><a href="Scene.html">Scene</a></li></ul><h3>Global</h3><ul><li><a href="global.html#live">live</a></li><li><a href="global.html#model">model</a></li><li><a href="global.html#onDestroy">onDestroy</a></li><li><a href="global.html#onDisable">onDisable</a></li><li><a href="global.html#onEnable">onEnable</a></li><li><a href="global.html#onKeyDown">onKeyDown</a></li><li><a href="global.html#onKeyUp">onKeyUp</a></li><li><a href="global.html#onMouseDown">onMouseDown</a></li><li><a href="global.html#onMouseMove">onMouseMove</a></li><li><a href="global.html#onMouseUp">onMouseUp</a></li><li><a href="global.html#paint">paint</a></li><li><a href="global.html#scene">scene</a></li><li><a href="global.html#start">start</a></li><li><a href="global.html#update">update</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Color.html">Color</a></li><li><a href="Drawable.html">Drawable</a></li><li><a href="Effect.html">Effect</a></li><li><a href="EffectLayer.html">EffectLayer</a></li><li><a href="Expression.html">Expression</a></li><li><a href="Image.html">Image</a></li><li><a href="Item.html">Item</a></li><li><a href="Live.html">Live</a></li><li><a href="LiveParameters.html">LiveParameters</a></li><li><a href="Model.html">Model</a></li><li><a href="Motion.html">Motion</a></li><li><a href="Painter.html">Painter</a></li><li><a href="Parameter.html">Parameter</a></li><li><a href="Part.html">Part</a></li><li><a href="Scene.html">Scene</a></li></ul><h3>Global</h3><ul><li><a href="global.html#live">live</a></li><li><a href="global.html#model">model</a></li><li><a href="global.html#onDestroy">onDestroy</a></li><li><a href="global.html#onDisable">onDisable</a></li><li><a href="global.html#onEnable">onEnable</a></li><li><a href="global.html#onKeyDown">onKeyDown</a></li><li><a href="global.html#onKeyUp">onKeyUp</a></li><li><a href="global.html#onMouseDown">onMouseDown</a></li><li><a href="global.html#onMouseMove">onMouseMove</a></li><li><a href="global.html#onMouseUp">onMouseUp</a></li><li><a href="global.html#paint">paint</a></li><li><a href="global.html#scene">scene</a></li><li><a href="global.html#start">start</a></li><li><a href="global.html#update">update</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Tue Oct 29 2024 15:11:30 GMT+0900 (Japan Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Thu May 29 2025 18:18:03 GMT+0900 (GMT+09:00)
 </footer>
 
 <script> prettyPrint(); </script>
